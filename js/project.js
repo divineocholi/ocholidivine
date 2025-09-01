@@ -3,7 +3,7 @@
 // Sample image data (replace src and links with yours)
 const images = [
   { src: "images/ms faith.png", title: "Chuby's beauty salon", link: "https://divineocholi.github.io/chubysbeauty-salon/index.html", category: "brand" },
-  { src: "images/royal.png", title: "Royal twist And Wigs", link: "https://onwuegbuzieokereke-commits.github.io/Royaltwistandbraids/index.h0tml", category: "brand" },
+  { src: "images/royal.png", title: "Royal twist And Wigs", link: "https://onwuegbuzieokereke-commits.github.io/Royaltwistandbraids/index.html", category: "brand" },
   { src: "images/uiux1.png", title: "UIUX Design", link: "#", category: "ui" },
   { src: "images/work2.jpeg", title: "UIUX Design", link: "#", category: "ui" },
   { src: "images/work3.jpeg", title: "UIUX Design", link: "#", category: "ui" },
