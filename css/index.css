@@ -571,7 +571,7 @@ nav {
 
 .review-link:hover {
   background-color: #343657;   /* dark background on hover */
-  color: #000;              /* yellow text */
+  color: #f1c40f;              /* yellow text */
 }
 
 /* blog section */
