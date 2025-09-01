@@ -37,8 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
      if (review.images && review.images.length > 0) {
       const fileId = review.images[0];  // get first image ID
       const imageURL = storage.getFileDownload(bucketId, fileId).href;
-              console.log('image URL',imageURL)
-
        imgTag = `<img src="${imageURL}" alt="${review.name}" class="testimonial-img" />`;
         } else {
         imgTag = `<img src="images/21k 1.jpg" alt="No image" class="testimonial-img" />`;
