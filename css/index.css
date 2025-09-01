@@ -262,7 +262,7 @@ nav {
 }
 
 .images{
-    background-image: url(/images/fineboy.jpg);
+    background-image: url(../images/fineboy.jpg);
     background-position: center;
     background-size: cover;
     height: 570px;
