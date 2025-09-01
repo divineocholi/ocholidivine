@@ -46,7 +46,7 @@ document.getElementById("reviewForm").addEventListener("submit", async (e) => {
       name,
       message,
       stars: starValue,
-      images: [imageId]
+      images: imageId
     });
 
     status.textContent = "✅ Review submitted successfully!";
