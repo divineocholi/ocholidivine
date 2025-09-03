@@ -232,7 +232,8 @@ nav {
     height: 40px;
     width: 150px;
     border-radius: 20px;
-    border: 1px solid #ffc107
+    border: 1px solid #ffc107;
+    text-decoration: none;
 }
 
 .btn2:hover{
