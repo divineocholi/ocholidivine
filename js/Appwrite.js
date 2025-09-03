@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Appwrite IDs for the new newsletter collection
     const newsletterCollectionId = "68b55364001a86939d74"; // Replace with your new collection ID
 
+    
+
     // Handle newsletter form submission
     document.getElementById("newsletterForm").addEventListener("submit", async (e) => {
         e.preventDefault(); // Prevents the page from reloading

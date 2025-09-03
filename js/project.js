@@ -23,9 +23,17 @@ let currentCount = 0;
 let currentCategory = "all";
 let filteredImages = images;
 
-function createCard(img) {
+function createCard(img,index) {
   const card = document.createElement("div");
-  card.className = "gallery-card";
+    card.className = "gallery-card";
+
+  const delay = 1500 + (index * 5)
+  
+  
+  card.setAttribute("data-aos","zoom-in");
+  card.setAttribute("data-aos-duration","2000");
+  card.setAttribute("data-aos-delay",delay)
+
   card.innerHTML = `
     <img src="${img.src}" alt="${img.title}">
     <div class="gallery-overlay">

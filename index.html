@@ -13,7 +13,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Ocholi divine</title>
     <link rel="stylesheet" href="css/index.css">
 </head>
@@ -25,12 +25,12 @@
         <a href="#">Ocholi.</a>
     </div>
     <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#About-me">About Me</a></li>
-        <li><a href="#gallery">Projects</a></li>
-        <li><a href="#testimonial-section">Testimonial</a></li>
-        <li><a href="#blog">Blogs</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a data-aos="fade-up" data-aos-delay="1000" href="#home">Home</a></li>
+        <li><a data-aos="fade-up" data-aos-delay="1500" href="#About-me">About Me</a></li>
+        <li><a data-aos="fade-up" data-aos-delay="2000" href="#gallery">Projects</a></li>
+        <li><a data-aos="fade-up" data-aos-delay="2500" href="#testimonial-section">Testimonial</a></li>
+        <li><a data-aos="fade-up" data-aos-delay="3000" href="#blog">Blogs</a></li>
+        <li><a data-aos="fade-up" data-aos-delay="3500" href="#contact">Contact</a></li>
     </ul>
     <div class="hamburger">
         <div class="line1"></div>
@@ -42,7 +42,7 @@
     <section id="home">
 <header class="main">
     
-   <div class="intruduction">
+   <div data-aos="fade-down" data-aos-delay="2000" data-aos-duration="1000" class="intruduction">
     <h1>
         I AM OCHOLI DIVINE <br>
          A <span style="color: white;">FRONTEND DEVELOPER</span>
@@ -62,7 +62,7 @@
    <section id="About-me">
     <div class="container-fluid about-me">
         <div class="row">
-      <div class="col-md-6 ">
+      <div data-aos="fade-right" data-aos-delay="1500" data-aos-duration="2000" class="col-md-6 ">
         <!-- <img src="images/fineboy.jpg" alt=""> -->
          <div class="images" >
           <!-- image is in css -->
@@ -70,32 +70,30 @@
          <div class="extacolor"></div>
       </div>
 
-      <div class="col-md-6 paragraph"> 
+      <div data-aos="fade-left" data-aos-delay="2000" data-aos-duration="2000"  class="col-md-6 paragraph"> 
            <h2>
-            <span style="color: #ffc107; font-size: 20px;">know</span>
            <br>
             About Me
            </h2>
-       <p>
-         Hi, I’m Ocholi Divine, a passionate Frontend Developer focused on creating clean, modern, and responsive websites. 
-         I specialize in turning ideas into functional, visually appealing, and user-friendly digital products.
-          With experience in HTML, CSS, JavaScript, React, TailwindCSS, and modern UI frameworks, 
-          I ensure every project is built with both performance and aesthetics in mind. I love taking a concept
-           and transforming it into a smooth, interactive experience that works beautifully across all devices.
+           <p>
+            I'm Ocholi Divine, a passionate Frontend Developer who creates clean, modern, and responsive websites. I specialize in turning ideas into functional, visually appealing, and user-friendly digital products. My goal is to help businesses and individuals stand out online with high-quality web experiences.
 
-What sets me apart is my ability to understand both design and functionality. I pay close attention to details,
- ensuring every pixel aligns with your brand while delivering speed and reliability.
-  Whether it’s building an engaging portfolio, a business website, or a scalable web app,
-   I bring creative solutions and technical precision to every project. I also value clear communication and collaboration,
-    making sure clients are always part of the process and fully satisfied with the results.
-My goal is simple: to help businesses and individuals stand out online 
-and achieve their goals with high-quality web experiences. 
-If you’re looking for someone who can turn your vision into reality quickly, efficiently,
- and with a polished finish, I’m ready to make it happen. Let’s build something amazing together.
-       </p>
+            <li>
+Technical Expertise: I build every project with performance and aesthetics in mind, using HTML, CSS, JavaScript,
+ React, TailwindCSS, and other modern UI frameworks.
+</li> <br>
+<li>
+  Attention to Detail: I ensure every pixel aligns perfectly with your brand, delivering both speed and reliability.
+</li> <br>
+<li>
+  Clear Communication: I value open collaboration, making sure my clients are part of the process and fully satisfied with the results.
+If you’re looking for someone to bring your vision to life, let’s build something amazing together.
+</li>
+           </p>
 
       <a href="#contact" style="text-decoration: none;"><button class="btn1">Contact me</button></a> 
-       <button class="btn2">Download CV</button>
+      <a href="cv.html"> <button class="btn2" style="text-decoration: none;">View my cv</button></a>
+      <div class="downloaded-animation"></div>
       </div>
  </div>  
     </div>
@@ -288,7 +286,7 @@ If you’re looking for someone who can turn your vision into reality quickly, e
  <section id="blog">
   <h1>Latest Blogs</h1>
   <div class="blog">
-    <div class="blog-items">
+    <div data-aos="zoom-in" data-aos-delay="1500" data-aos-duration="1000" class="blog-items">
       <img src="images/deve.jpeg" alt="">
        <p>
         Being a good developer isn’t just about writing code — it’s about problem-solving, 
@@ -300,7 +298,7 @@ learn the habits that gives you the edge.
     </div>
 
     <!-- blog 2 -->
-     <div class="blog-items">
+     <div data-aos="zoom-in" data-aos-delay="200"  data-aos-duration="1000" class="blog-items">
       <img src="images/start.jpeg" alt="">
        <p>
 Every developer starts somewhere, and my journey was filled with struggles, 
@@ -405,9 +403,14 @@ Discover why learning a framework could be the smartest move in your  developer 
 </div>
 
     <script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.0"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/index.js"></script>
 <script src="js/navbar.js"></script>
+<script src="js/downloadcv.js"></script>
 <script src="js/project.js"></script>
 <script src="js/tools-i-work-with.js"></script>
+<script>
+  AOS.init();
+</script>
 </body>
 </html>
