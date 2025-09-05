@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const imageURL = storage.getFileDownload(bucketId, fileId).href;
        imgTag = `<img src="${imageURL}" alt="${review.name}" class="testimonial-img" />`;
         } else {
-        imgTag = `<img src="images/21k 1.jpg" alt="No image" class="testimonial-img" />`;
+        imgTag = `<img src="images/testimonialimg" alt="No image" class="testimonial-img" />`;
         }
 
         const starsCount = review.stars || 0;
