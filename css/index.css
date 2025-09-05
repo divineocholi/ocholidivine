@@ -101,6 +101,19 @@ nav {
     transition: all 0.3s ease;
 }
 
+/* Animate hamburger into an "X" */
+.hamburger.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.toggle .line2 {
+  opacity: 0;
+}
+
+.hamburger.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
 @media screen and (max-width: 768px) {
   /* Show hamburger */
   .hamburger {
