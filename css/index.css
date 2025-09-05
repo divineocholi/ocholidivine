@@ -1258,7 +1258,7 @@ form button:hover {
   .intruduction h2 { font-size: 1.2rem; }
   .intruduction p { font-size: 0.9rem; }
 
-  .btn1, .btn2 { width: 100%; max-width: 250px; }
+  .btn1, .btn2 { width: 100%; justify-self: center;margin-top: 10px; }
 
   .gallery-grid { grid-template-columns: 1fr; }
   .contact-form { padding: 20px; }
