@@ -12,57 +12,56 @@ document.addEventListener("DOMContentLoaded", () => {
   const collectionId = "68b0be330003bb20b056";
       const newsletterCollectionId = "68b55364001a86939d74"; // Replace with your new collection ID
   const bucketId = "68b08630000e0214748f";
+async function loadReviews() {
+  const reviewsContainer = document.querySelector(".testimonial-track");
+  const indicatorContainer = document.querySelector(".testimonial-indicator");
 
-  async function loadReviews() {
-    const reviewsContainer = document.querySelector(".testimonial-track");
-    const indicatorContainer = document.querySelector(".testimonial-indicator");
-
-    if (!reviewsContainer) {
-      console.error("Reviews container not found.");
-      return;
-    }
-
-    try {
-      // Fetch all reviews
-      const res = await databases.listDocuments(dbId, collectionId);
-
-      // Clear container + indicators
-      reviewsContainer.innerHTML = "";
-      indicatorContainer.innerHTML = "";
-
-      // Loop through each review
-      res.documents.forEach((review) => {
-      
-        let imgTag = "";     
-     if (review.images && review.images.length > 0) {
-      const fileId = review.images[0];  // get first image ID
-      const imageURL = storage.getFileDownload(bucketId, fileId).href;
-       imgTag = `<img src="${imageURL}" alt="${review.name}" class="testimonial-img" />`;
-        } else {
-        imgTag = `<img src="images/testimonialimg.jpg" alt="No image" class="testimonial-img" />`;
-        }
-
-        const starsCount = review.stars || 0;
-        const stars = "★".repeat(starsCount);
-
-        const card = `
-          <div class="testimonial-content">
-            ${imgTag}
-            <h4>${review.name || "Anonymous"}</h4>
-            <p>${review.message || ""}</p>
-            <div class="stars">${stars}</div>
-          </div>
-        `;
-        reviewsContainer.innerHTML += card;
-      });
-
-      // ✅ Initialize slider after adding reviews
-      initSlider();
-    } catch (err) {
-      console.error("Error loading reviews:", err);
-    }
+  if (!reviewsContainer) {
+    console.error("Reviews container not found.");
+    return;
   }
 
+  try {
+    const res = await databases.listDocuments(dbId, collectionId);
+
+    reviewsContainer.innerHTML = "";
+    indicatorContainer.innerHTML = "";
+
+    res.documents.forEach((review) => {
+      const fallbackURL =
+        "https://fra.cloud.appwrite.io/v1/storage/buckets/68b08630000e0214748f/files/68ba3bd60001925481d8/view?project=68b07bcd0030b6ff9202";
+
+      let imageURL = fallbackURL;
+
+      if (Array.isArray(review.images) && review.images.length > 0) {
+        const fileId = review.images[0];
+        imageURL = storage.getFileView(bucketId, fileId).toString();
+      }
+
+      // build card with placeholder image
+      const card = document.createElement("div");
+      card.classList.add("testimonial-content");
+      card.innerHTML = `
+        <img src="${imageURL}" alt="${review.name || "Anonymous"}" class="testimonial-img" />
+        <h4>${review.name || "Anonymous"}</h4>
+        <p>${review.message || ""}</p>
+        <div class="stars">${"★".repeat(review.stars || 0)}</div>
+      `;
+
+      // add fallback handling in JS
+      const imgElement = card.querySelector("img");
+      imgElement.onerror = () => {
+        imgElement.src = fallbackURL;
+      };
+
+      reviewsContainer.appendChild(card);
+    });
+
+    initSlider();
+  } catch (err) {
+    console.error("Error loading reviews:", err);
+  }
+}
   function initSlider() {
     const track = document.querySelector('.testimonial-track');
     const slides = document.querySelectorAll('.testimonial-content');
