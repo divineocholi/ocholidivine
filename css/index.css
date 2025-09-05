@@ -1259,7 +1259,9 @@ form button:hover {
   .intruduction p { font-size: 0.9rem; }
 
   .btn1, .btn2 { width: 100%; justify-self: center;margin-top: 10px; }
-
+  .gallery-filters button{
+    display: inline-block;
+  }
   .gallery-grid { grid-template-columns: 1fr; }
   .contact-form { padding: 20px; }
   .footer-distributed { font-size: 14px; }
