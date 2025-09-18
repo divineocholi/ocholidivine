@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocholi Divine - Frontend Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .cv-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cv-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: white;
+            padding: 50px 50px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 50%;
+            transform: translate(100px, -100px);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .header h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .job-title {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: #a0aec0;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+            color: #cbd5e0;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .contact-item::before {
+            content: '●';
+            color: #667eea;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        .contact-item a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: white;
+        }
+
+        .main-content {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0f0f23;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .summary-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a5568;
+            background: linear-gradient(135deg, #f8fafc, #edf2f7);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            position: relative;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .experience-item {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f4f8;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 3px 3px 0 0;
+        }
+
+        .item-header {
+            margin-bottom: 20px;
+        }
+
+        .item-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0f0f23;
+            margin-bottom: 8px;
+        }
+
+        .item-subtitle {
+            font-size: 1.05rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .item-date {
+            font-size: 0.9rem;
+            color: #718096;
+            font-weight: 500;
+            background: #f8fafc;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .item-description {
+            margin-top: 20px;
+        }
+
+        .item-description ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .item-description li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #4a5568;
+        }
+
+        .item-description li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #667eea;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .education-item {
+            padding: 25px;
+            background: linear-gradient(135deg, #f8fafc, #edf2f7);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            background: linear-gradient(135deg, #edf2f7, #e2e8f0);
+            transform: translateX(5px);
+        }
+
+        .download-btn {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .cv-container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: none;
+            }
+            
+            .download-btn {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 25px;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .main-content {
+                padding: 30px 25px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-container {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+            
+            .experience-item {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="download-btn" onclick="window.print()">Download PDF</button>
+    
+    <div class="cv-container">
+        <header class="header">
+            <div class="header-content">
+                <h1>Ocholi Divine</h1>
+                <p class="job-title">Frontend Developer & UI/UX Enthusiast</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <span>contact.ocholidivine@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>+234 707 1333 709</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>Lagos, Nigeria</span>
+                    </div>
+                    <div class="contact-item">
+                        <a href="https://www.linkedin.com/in/ocholidivine" target="_blank">LinkedIn Profile</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="section">
+                <h2>Professional Summary</h2>
+                <p class="summary-text">
+                    Creative and detail-oriented Frontend Developer with expertise in modern web technologies and design principles. 
+                    Passionate about crafting exceptional user experiences through clean code, innovative design, and performance optimization. 
+                    Proven track record of delivering high-quality web applications that combine aesthetic appeal with robust functionality, 
+                    consistently exceeding client expectations and industry standards.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2>Technical Expertise</h2>
+                <div class="skills-container">
+                    <div class="skill-tag">HTML5</div>
+                    <div class="skill-tag">CSS3</div>
+                    <div class="skill-tag">JavaScript</div>
+                    <div class="skill-tag">React</div>
+                    <div class="skill-tag">Tailwind CSS</div>
+                    <div class="skill-tag">Bootstrap</div>
+                    <div class="skill-tag">GSAP</div>
+                    <div class="skill-tag">AOS</div>
+                    <div class="skill-tag">Bulma</div>
+                    <div class="skill-tag">Figma</div>
+                    <div class="skill-tag">Swiper.js</div>
+                    <div class="skill-tag">Git & GitHub</div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Experience & Projects</h2>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Frontend Developer & Project Lead</h3>
+                        <p class="item-subtitle">Freelance & Client Projects</p>
+                        <span class="item-date">2023 - Present</span>
+                    </div>
+                    <div class="item-description">
+                        <ul>
+                            <li>Successfully delivered 15+ responsive web applications for diverse clients across various industries</li>
+                            <li>Implemented advanced animations using GSAP and AOS libraries, improving user engagement by 40%</li>
+                            <li>Developed reusable component libraries with React, reducing development time by 30%</li>
+                            <li>Collaborated with clients to transform design concepts into pixel-perfect, interactive web experiences</li>
+                            <li>Optimized web performance achieving 95+ Google PageSpeed scores across all projects</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Chuby's Beauty Salon - Complete Web Solution</h3>
+                        <p class="item-subtitle">Full-Stack Web Development Project</p>
+                        <span class="item-date">2024</span>
+                    </div>
+                    <div class="item-description">
+                        <ul>
+                            <li>Designed and developed a comprehensive salon booking website with modern UI/UX principles</li>
+                            <li>Integrated Swiper.js for elegant service galleries and testimonial carousels</li>
+                            <li>Implemented responsive design ensuring seamless experience across all device types</li>
+                            <li>Enhanced site performance with optimized images and clean, semantic code structure</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://divineocholi.github.io/chubysbeauty-salon/" target="_blank" class="project-link">Live Demo</a>
+                            <a href="https://github.com/divineocholi" target="_blank" class="project-link">GitHub Repository</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Personal Portfolio - Advanced Web Showcase</h3>
+                        <p class="item-subtitle">Professional Portfolio Development</p>
+                        <span class="item-date">2024</span>
+                    </div>
+                    <div class="item-description">
+                        <ul>
+                            <li>Architected a cutting-edge portfolio showcasing advanced frontend development skills</li>
+                            <li>Utilized GSAP for complex animations and smooth scroll interactions</li>
+                            <li>Implemented dynamic content management with JavaScript and modern CSS techniques</li>
+                            <li>Achieved exceptional performance metrics with optimized code and asset management</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://divineocholi.github.io/ocholidivine/" target="_blank" class="project-link">Live Demo</a>
+                            <a href="https://github.com/divineocholi" target="_blank" class="project-link">GitHub Repository</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Education & Certifications</h2>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Software Engineering Program</h3>
+                        <p class="item-subtitle">Brigham Young University - Pathway Connect</p>
+                        <p class="item-date">2025 - In Progress</p>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Frontend Development Certification</h3>
+                        <p class="item-subtitle">Aptech Computer Education</p>
+                        <p class="item-date">2025</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

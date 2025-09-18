@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocholi Divine - Frontend Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 60px;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #000;
+        }
+
+        .contact-info p {
+            font-size: 16px;
+            margin: 5px 0;
+            font-weight: 400;
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        h1 {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 30px 0 20px 0;
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 16px;
+            font-weight: 700;
+            margin: 20px 0 5px 0;
+            color: #000;
+        }
+
+        h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 15px 0 5px 0;
+            color: #444;
+        }
+
+        p {
+            font-size: 14px;
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+        .job-period {
+            font-weight: 700;
+            color: #000;
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .company {
+            font-weight: 500;
+            color: #666;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .experience-item {
+            margin-bottom: 20px;
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+        }
+
+        .download-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 1000;
+        }
+
+        .download-btn:hover {
+            background: #333;
+        }
+
+        @media print {
+            body {
+                padding: 20px;
+                max-width: none;
+            }
+            
+            .download-btn {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 30px;
+            }
+            
+            .name {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="download-btn" onclick="window.print()">Download PDF</button>
+    
+    <div class="contact-info">
+        <div class="name">Ocholi Divine</div>
+        <p>+234 707 1333 709</p>
+        <p>CONTACT.OCHOLIDIVINE@GMAIL.COM</p>
+        <p>Lagos, Nigeria</p>
+        <p>linkedin.com/in/ocholidivine</p>
+    </div>
+
+    <div class="section">
+        <h1>Objective</h1>
+        <p>To leverage my advanced frontend development skills to create innovative, responsive, and user-centric web applications that drive business growth and deliver exceptional digital experiences across diverse industries and platforms.</p>
+    </div>
+
+    <div class="section">
+        <h1>Skills & Abilities</h1>
+        <p>Proficient in HTML5, CSS3, JavaScript, React, Tailwind CSS, Bootstrap, GSAP, AOS, Bulma, Figma, Swiper.js, and Git for version control, with expertise in responsive design, UI/UX principles, and API integration.</p>
+    </div>
+
+    <div class="section">
+        <h1>Experience</h1>
+        
+        <div class="experience-item">
+            <h2><span class="job-period">2025 -- Present</span> Frontend Developer</h2>
+            <h3>Web Development Projects</h3>
+            <p>Delivered 15+ responsive web applications across various industries, implementing advanced animations using GSAP and AOS libraries to improve user engagement by 40%. Developed reusable React components reducing development time by 30% while maintaining 95+ Google PageSpeed scores across all projects.</p>
+        </div>
+
+        <div class="experience-item">
+            <h2><span class="job-period">2025</span> Web Application Developer</h2>
+            <h3>PathSeeker - E-Learning Platform</h3>
+            <p>Developed comprehensive e-learning web application enabling users to login and search educational videos based on keywords. Integrated YouTube API for dynamic content retrieval, implemented user authentication system, and created intuitive search functionality with responsive design for seamless cross-device learning experience.</p>
+        </div>
+
+        <div class="experience-item">
+            <h2><span class="job-period">2025</span> Full-Stack Developer</h2>
+            <h3>E-Commerce Web Application</h3>
+            <p>Built comprehensive e-commerce platform with modern UI/UX design, secure payment integration, and advanced product catalog system. Implemented React components for dynamic shopping cart functionality and responsive design ensuring optimal user experience across all devices.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h1>Education</h1>
+        
+        <div class="education-item">
+            <h2><span class="job-period">2025 -- In Progress</span> Software Engineering Program</h2>
+            <h3>Brigham Young University - Pathway Connect</h3>
+            <p>Pursuing comprehensive curriculum in software engineering principles, algorithms, and modern development practices.</p>
+        </div>
+
+        <div class="education-item">
+            <h2><span class="job-period">2025</span> Frontend Development Certification</h2>
+            <h3>Aptech Computer Education</h3>
+            <p>Completed rigorous curriculum in frontend development, covering HTML5, CSS3, JavaScript, and modern frameworks with hands-on project experience.</p>
+        </div>
+    </div>
+</body>
+</html>
